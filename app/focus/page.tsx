@@ -71,7 +71,7 @@ export default function FocusPage() {
 						))}
 					</div>
 					<div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-slate-200 shadow-xl shadow-black/30 backdrop-blur">
-						<h2 className="text-lg font-semibold text-white">Let's Collaborate</h2>
+						<h2 className="text-lg font-semibold text-white">Let&apos;s Collaborate</h2>
 						<p className="mt-2 leading-relaxed">
 							研究・プロダクト開発・学習イベントなど、気になるテーマがあればぜひ声をかけてください。共同で取り組めるアイデアをいつも探しています。
 						</p>
