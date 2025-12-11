@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SiteHeader from "../../components/site-header";
+import PageShell from "../../components/page-shell";
 
 type Capability = {
 	title: string;
@@ -15,12 +15,6 @@ const capabilities: Capability[] = [
 		stack: ["C", "Shell", "Git", "Make"]
 	},
 	{
-		title: "数値計算とシミュレーション",
-		description:
-			"大学での研究と並行して、MATLABやPythonでモデル化・可視化を行い、物理現象をデータとして捉える力を磨いています。数値解の安定性や誤差評価を意識した実装が得意です。",
-		stack: ["MATLAB", "Python", "NumPy", "Matplotlib"]
-	},
-	{
 		title: "学習環境づくり",
 		description:
 			"ピアラーニングの文化に影響を受け、情報共有のためのドキュメント整備や自動化にも取り組んできました。チームで素早く学び合う仕組みを作ることに関心があります。",
@@ -30,14 +24,7 @@ const capabilities: Capability[] = [
 
 export default function FocusPage() {
 	return (
-		<main className="relative flex min-h-screen flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-			<div className="pointer-events-none absolute inset-0 overflow-hidden">
-				<div className="absolute -left-32 top-24 h-64 w-64 rounded-full bg-accent-500/40 blur-3xl" />
-				<div className="absolute bottom-12 right-0 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
-			</div>
-
-			<SiteHeader />
-
+		<PageShell>
 			<section className="relative flex flex-1 flex-col px-6 py-24">
 				<div className="mx-auto w-full max-w-5xl space-y-12">
 					<div className="space-y-5">
@@ -85,20 +72,6 @@ export default function FocusPage() {
 					</div>
 				</div>
 			</section>
-
-			<footer className="border-t border-white/5 bg-slate-950/80 px-6 py-8">
-				<div className="mx-auto flex max-w-5xl items-center justify-between text-xs text-slate-400">
-					<p>&copy; {new Date().getFullYear()} Keiichi Jikuhara</p>
-					<a
-						href="https://github.com/jiku0730"
-						target="_blank"
-						rel="noreferrer"
-						className="transition hover:text-slate-200"
-					>
-						GitHub
-					</a>
-				</div>
-			</footer>
-		</main>
+		</PageShell>
 	);
 }

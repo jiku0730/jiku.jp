@@ -1,4 +1,4 @@
-import SiteHeader from "../../components/site-header";
+import PageShell from "../../components/page-shell";
 
 type TimelineEvent = {
 	period: string;
@@ -63,14 +63,7 @@ const timeline: TimelineEvent[] = [
 
 export default function TimelinePage() {
 	return (
-		<main className="relative flex min-h-screen flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-			<div className="pointer-events-none absolute inset-0 overflow-hidden">
-				<div className="absolute -left-32 top-24 h-64 w-64 rounded-full bg-accent-500/40 blur-3xl" />
-				<div className="absolute bottom-12 right-0 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
-			</div>
-
-			<SiteHeader />
-
+		<PageShell>
 			<section className="relative flex flex-1 flex-col px-6 py-24">
 				<div className="mx-auto w-full max-w-4xl">
 					<h1 className="text-4xl font-semibold text-white">Timeline</h1>
@@ -100,20 +93,6 @@ export default function TimelinePage() {
 					</div>
 				</div>
 			</section>
-
-			<footer className="border-t border-white/5 bg-slate-950/80 px-6 py-8">
-				<div className="mx-auto flex max-w-5xl items-center justify-between text-xs text-slate-400">
-					<p>&copy; {new Date().getFullYear()} Keiichi Jikuhara</p>
-					<a
-						href="https://github.com/jiku0730"
-						target="_blank"
-						rel="noreferrer"
-						className="transition hover:text-slate-200"
-					>
-						GitHub
-					</a>
-				</div>
-			</footer>
-		</main>
+		</PageShell>
 	);
 }

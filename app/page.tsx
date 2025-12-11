@@ -1,4 +1,4 @@
-import SiteHeader from "../components/site-header";
+import PageShell from "../components/page-shell";
 
 type ContactMethod = {
 	label: string;
@@ -47,14 +47,7 @@ const contactMethods: ContactMethod[] = [
 
 export default function HomePage() {
 	return (
-		<main className="relative flex min-h-screen flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-			<div className="pointer-events-none absolute inset-0 overflow-hidden">
-				<div className="absolute -left-32 top-24 h-64 w-64 rounded-full bg-accent-500/40 blur-3xl" />
-				<div className="absolute bottom-12 right-0 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
-			</div>
-
-			<SiteHeader brandHref="#hero" />
-
+		<PageShell headerProps={{ brandHref: "#hero" }}>
 			<section id="hero" className="relative flex flex-1 items-center justify-center px-6 py-24">
 				<div className="mx-auto max-w-3xl text-center">
 					<p className="text-sm uppercase tracking-[0.4em] text-accent-400">Physics × Software</p>
@@ -136,19 +129,6 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			<footer className="border-t border-white/5 bg-slate-950/80 px-6 py-8">
-				<div className="mx-auto flex max-w-5xl items-center justify-between text-xs text-slate-400">
-					<p>&copy; {new Date().getFullYear()} Keiichi Jikuhara</p>
-					<a
-						href="https://github.com/jiku0730"
-						target="_blank"
-						rel="noreferrer"
-						className="transition hover:text-slate-200"
-					>
-						GitHub
-					</a>
-				</div>
-			</footer>
-		</main>
+		</PageShell>
 	);
 }
