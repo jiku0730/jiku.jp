@@ -16,6 +16,12 @@ const contactMethods: ContactMethod[] = [
 		description: "一番確実な連絡先。カジュアルな相談も歓迎しています。"
 	},
 	{
+		label: "Github",
+		value: "@jiku0730",
+		href: "https://github.com/jiku0730",
+		description: "現在取り組み中の課題が確認できます。コメントやPRなども受け付けています。"
+	},
+	{
 		label: "X (Twitter)",
 		value: "@jiku0730",
 		href: "https://twitter.com/jiku0730",
@@ -23,7 +29,7 @@ const contactMethods: ContactMethod[] = [
 		external: true
 	},
 	{
-		label: "Zenn",
+		label: "Zenn（現在未使用）",
 		value: "zenn.dev/jiku_jiku",
 		href: "https://zenn.dev/jiku_jiku",
 		description: "技術記事や学習メモをまとめています。",
@@ -80,11 +86,11 @@ export default function HomePage() {
 							</div>
 							<div className="flex items-start justify-between gap-3">
 								<dt className="text-base font-medium">Tools</dt>
-								<dd className="text-right text-base text-slate-300">Git, Github, GitHub Actions(CI, CD)</dd>
+								<dd className="text-right text-base text-slate-300">Git, Github, GitHub Actions(CI, CD), LaTeX</dd>
 							</div>
 							<div className="flex items-start justify-between gap-3">
 								<dt className="text-base font-medium">Interests</dt>
-								<dd className="text-right text-base text-slate-300">物理Simulation, 量子コンピュータ, 教育系事業</dd>
+								<dd className="text-right text-base text-slate-300">物理趣味レーション, 量子コンピュータ, 教育系事業</dd>
 							</div>
 						</dl>
 					</div>
@@ -97,7 +103,7 @@ export default function HomePage() {
 						<div className="space-y-4">
 							<h2 className="text-3xl font-semibold text-white">Contact</h2>
 							<p className="mt-4 text-base leading-relaxed text-slate-200">
-								プロジェクトのお誘い、学習コミュニティでのコラボ、進路の相談など、気軽にご連絡ください。
+								プロジェクトのお誘い、学習コミュニティでの輪講、進路の相談など、気軽にご連絡ください。
 							</p>
 							<p className="text-sm text-slate-400">
 								※ SNSは技術発信が中心です。作品や取り組みの感想なども歓迎しています。
