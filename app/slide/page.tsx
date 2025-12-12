@@ -1,45 +1,56 @@
+import Link from "next/link";
+import type { Route } from "next";
 import PageShell from "../../components/page-shell";
-
-const slideEmbedUrl =
-	process.env.NEXT_PUBLIC_GOOGLE_SLIDE_URL ??
-	"https://docs.google.com/presentation/d/e/YOUR_EMBED_ID/embed?start=false&loop=false&delayms=3000";
-
-const isPlaceholder = slideEmbedUrl.includes("YOUR_EMBED_ID");
+import TypewriterText from "../../components/typewriter-text";
+import { slideDecks } from "./slides";
 
 export default function SlidePage() {
 	return (
 		<PageShell>
-			<section className="relative flex flex-1 flex-col px-6 py-24">
+			<section id="hero" className="relative flex flex-1 items-center justify-center px-6 py-24">
+				<div className="mx-auto max-w-3xl text-center">
+					<p className="text-sm uppercase tracking-[0.1em] text-accent-400">Slide Library</p>
+					<h1 className="mt-6 text-4xl font-bold leading-tight text-white sm:text-4xl">
+						<TypewriterText text="学びをスライドに凝縮しています。" speed={70} />
+					</h1>
+					<p className="mt-6 text-base leading-relaxed text-slate-200 sm:text-lg">
+						調べた知見や勉強会の資料をまとめ、いつでも参照できるように公開しています。
+					</p>
+				</div>
+			</section>
+
+			<section className="relative border-t border-white/5 bg-slate-950/70 px-6 py-24">
 				<div className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-12">
-					<div className="space-y-5">
-						<h1 className="text-4xl font-semibold text-white">Slide</h1>
+					<div className="flex flex-col gap-2 text-left">
+						<p className="text-sm uppercase tracking-[0.05em] text-accent-400">Available Decks</p>
 						<p className="text-base leading-relaxed text-slate-200">
-							文字コードの基礎を整理したGoogleスライドを掲載しています。符号化方式の違いや歴史的な背景をざっと振り返りながら、普段の開発で意識しておきたいポイントをまとめました。
+							各スライドは個別ページで確認できます。
 						</p>
 					</div>
-					<div className="flex flex-1 flex-col gap-6">
-						<div className="rounded-3xl border border-white/10 bg-slate-900/70 p-4 shadow-xl shadow-black/30 backdrop-blur">
-							{isPlaceholder ? (
-								<div className="flex h-[60vh] items-center justify-center rounded-2xl border border-dashed border-slate-500/50 bg-slate-900/80 px-6 text-center text-sm text-slate-300">
-									<p>
-										Googleスライドの埋め込みURLが未設定です。共有設定から「埋め込みリンク」を取得し、
-										<code className="mx-1 rounded bg-slate-800 px-1 py-0.5">NEXT_PUBLIC_GOOGLE_SLIDE_URL</code>
-										として環境変数に登録するか、
-										<code className="mx-1 rounded bg-slate-800 px-1 py-0.5">app/slide/page.tsx</code>
-										のURLを差し替えてください。
-									</p>
-								</div>
-							) : (
-								<iframe
-									title="Character Encoding Slide"
-									src={slideEmbedUrl}
-									allow="autoplay; fullscreen"
-									className="h-[65vh] w-full rounded-2xl border-0"
-									loading="lazy"
-									allowFullScreen
-								/>
-							)}
-						</div>
+					<div className="grid gap-6 md:grid-cols-2">
+						{slideDecks.map((deck) => {
+							const href = `/slide/${deck.slug}` as Route;
+
+							return (
+								<article
+									key={deck.slug}
+									className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-xl shadow-black/30 transition hover:border-accent-500/60"
+								>
+									<div>
+										<p className="text-xs uppercase tracking-wider text-accent-400">{deck.heroLabel}</p>
+										<h2 className="mt-2 text-xl font-semibold text-white">{deck.title}</h2>
+										<p className="mt-3 text-sm leading-relaxed text-slate-200">{deck.excerpt}</p>
+									</div>
+									<Link
+										href={href}
+										className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-400 transition hover:text-accent-500"
+									>
+										スライドを見る
+										<span aria-hidden>→</span>
+									</Link>
+								</article>
+							);
+						})}
 					</div>
 				</div>
 			</section>
