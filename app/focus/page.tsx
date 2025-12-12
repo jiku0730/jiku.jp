@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageShell from "../../components/page-shell";
+import TypewriterText from "../../components/typewriter-text";
 
 type Capability = {
 	title: string;
@@ -25,13 +26,24 @@ const capabilities: Capability[] = [
 export default function FocusPage() {
 	return (
 		<PageShell>
-			<section className="relative flex flex-1 flex-col px-6 py-24">
+			<section id="hero" className="relative flex flex-1 items-center justify-center px-6 py-24">
+				<div className="mx-auto max-w-3xl text-center">
+					<p className="text-sm uppercase tracking-[0.1em] text-accent-400">Current Focus</p>
+					<h1 className="mt-6 text-4xl font-bold leading-tight text-white sm:text-4xl">
+						<TypewriterText text="考える力と、作る力をつなぐ。" speed={65} />
+					</h1>
+					<p className="mt-6 text-base leading-relaxed text-slate-200 sm:text-lg">
+						理解を深めるために実装し、実装のためにまた学ぶ —— その往復を続けています。
+					</p>
+				</div>
+			</section>
+
+			<section className="relative border-t border-white/5 bg-slate-950/70 px-6 py-24">
 				<div className="mx-auto w-full max-w-5xl space-y-12">
-					<div className="space-y-5">
-						<h1 className="text-4xl font-semibold text-white">Focus</h1>
+					<div className="flex flex-col gap-2 text-left">
+						<p className="text-sm uppercase tracking-[0.05em] text-accent-400">Focus Areas</p>
 						<p className="text-base leading-relaxed text-slate-200">
-							物理で鍛えた分析力と42Tokyoで培った実装力をつなぎ、理論とソフトウェアのあいだにある課題を解くことに関心があります。
-							現在注力している領域をまとめました。
+							現在注力している領域と、その背景にある考え方をまとめています。
 						</p>
 					</div>
 					<div className="grid gap-6 md:grid-cols-2">
