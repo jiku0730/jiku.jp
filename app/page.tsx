@@ -90,7 +90,7 @@ export default function HomePage() {
 							</div>
 							<div className="flex items-start justify-between gap-3">
 								<dt className="text-base font-medium">Interests</dt>
-								<dd className="text-right text-base text-slate-300">物理趣味レーション, 量子コンピュータ, 教育系事業</dd>
+								<dd className="text-right text-base text-slate-300">物理シミュレーション, 量子コンピュータ, 教育系事業</dd>
 							</div>
 						</dl>
 					</div>
