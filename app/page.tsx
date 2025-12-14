@@ -12,8 +12,8 @@ type ContactMethod = {
 const contactMethods: ContactMethod[] = [
 	{
 		label: "Email",
-		value: "kei2003730@gmail.com",
-		href: "mailto:kei2003730@gmail.com",
+		value: "contact@jiku.jp",
+		href: "mailto:contact@jiku.jp",
 		description: "一番確実な連絡先です。\nカジュアルな相談も歓迎しています。"
 	},
 	{
